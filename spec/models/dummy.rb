@@ -1,45 +1,35 @@
 class FundingInstrument
   # I'm a fake ActiveModel class!
   # I should minimally respond to the #find method
-  def self.find(all, *args)
+  class << self
+    def find(*args)
+      [:a, :b]
+    end
+
+    def relation_delegate_class(_args)
+      ActiveWorkaround::CollectionProxy
+    end
   end
 end
 
 class ParentObject
+  extend ActiveWorkaround::Concern
   def self.find(args)
     [:a, :b, :c]
   end
 end
 
-class Dummy 
-  extend ActiveWorkaround::Concern
+class User < ActiveRecord::Base
 
-  #has_many_related
-  #has_many_affiliated
-  has_many_remote :funding_instruments#, cache: true
-
-  def initialize
-    @id = 1
-  end
+  has_many :funding_instruments
 
 end
 
-class DummyWithoutToParam
-  extend ActiveWorkaround::Concern
-
-  #todo, just use class_name
-  has_many_remote :funding_instruments, class: FundingInstrument #, foreign_key: :account_id
-
-  def initialize
-    @id = 1
-  end
+class UserWithoutToParam < User
 
 end
 
-class HorribleObject 
-  extend ActiveWorkaround::Concern
-
-  has_many_remote :funding_instruments
+class HorribleObject < User
 
 end
 
@@ -50,6 +40,6 @@ class SubservientDummy
     @id = 1
   end
 
-  belongs_to_remote :parent_object
+  #belongs_to :parent_object
 
 end

@@ -3,6 +3,12 @@
 module ActiveWorkaround
   module Concern #extend ActiveSupport::Concern
 
+    class << self
+      def self.relation_delegate_class(_args)
+        ActiveWorkaround::CollectionProxy
+      end
+    end
+
     def has_many_remote(name, args={})
       @@active_workaround_args ||= {}
       @@active_workaround_args[:has_many] ||= {}
