@@ -1,5 +1,9 @@
 class FundingInstrument
   # I'm a fake ActiveModel class!
+  def save
+    @persisted = true
+  end
+
   # I should minimally respond to the #find method
   class << self
     def find(*args)

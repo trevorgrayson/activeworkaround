@@ -69,7 +69,6 @@ describe(ActiveWorkaround::Concern) do
         expect(dummy.funding_instruments.size).to eq(5)
       }
 
-
     end
 
     #describe("finds a foreign_id") do

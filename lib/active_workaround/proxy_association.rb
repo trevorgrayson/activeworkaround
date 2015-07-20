@@ -2,33 +2,37 @@ module ActiveWorkaround
 
   class ProxyAssociation
 
-    attr_accessor :results
+    attr_accessor :items
 
     delegate :[], :first, :second, :third, :fourth, :fifth, :forty_two,
       :find, :select,
       :last, :take, :count, :size, :length, :empty?, :any?, :many?, :include?,  
-      to: :results
+      to: :items
 
     def initialize( model, association )
       @owner = association.owner
       @model = model
-      @results = @model.find(:all, foriegn_key(@owner) => @owner.to_param)
+      @items = @model.find(:all, foriegn_key(@owner) => @owner.to_param)
     end
 
     def create(args)
+      args[foriegn_key(@owner)] = @owner.to_param
       @model.create(args)
     end
 
     def create!(args)
+      args[foriegn_key(@owner)] = @owner.to_param
       @model.create!(args)
     end
 
     def build(args)
+      args[foriegn_key(@owner)] = @owner.to_param
       @model.build(args)
     end
+    alias_method :new, :build
 
     def concat(new)
-      @results.concat(new)
+      @items.concat(new)
     end
 
     #def reload

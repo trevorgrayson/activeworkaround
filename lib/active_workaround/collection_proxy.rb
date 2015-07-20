@@ -10,25 +10,13 @@ module ActiveWorkaround
     delegate :[], :first, :second, :third, :fourth, :fifth, :forty_two,
       :find, :select,
       :last, :take, :count, :size, :length, :empty?, :any?, :many?, :include?,  
+      :create, :create!, :build, :new,
       to: :proxy_association
 
     #replace, delete_all, destroy_all, delete, destroy, distinct, uniq, 
-    def create(args)
-      proxy_association.create(args)
-    end
-
-    def create!(args)
-      proxy_association.create!(args)
-    end
-
-    def build(args)
-      proxy_association.build(args)
-    end
-    alias_method :new, :build
 
     def method_missing method, *args
       puts "DEBUGGER: #{method}" + args.inspect
-      #@results.send(method, args)
     end
 
     def concat new
@@ -36,6 +24,7 @@ module ActiveWorkaround
     end
 
     def <<(*records)
+      records.map {|record| record.save }
       proxy_association.concat(records) && self
     end
     alias_method :push, :<<
