@@ -17,7 +17,7 @@ class FundingInstrument
 end
 
 class ParentObject
-  extend ActiveWorkaround::Concern
+  extend ActiveWorkaround::PoroConcern
   def self.find(args)
     [:a, :b, :c]
   end
@@ -38,12 +38,12 @@ class HorribleObject < User
 end
 
 class SubservientDummy
-  extend ActiveWorkaround::Concern
+  extend ActiveWorkaround::PoroConcern
 
   def initialize
     @id = 1
   end
 
-  #belongs_to :parent_object
+  belongs_to :parent_object
 
 end
