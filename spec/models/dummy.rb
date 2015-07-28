@@ -11,13 +11,13 @@ class FundingInstrument
     end
 
     def relation_delegate_class(_args)
-      ActiveWorkaround::CollectionProxy
+      SilverSpoon::CollectionProxy
     end
   end
 end
 
 class ParentObject
-  extend ActiveWorkaround::PoroConcern
+  extend SilverSpoon::PoroConcern
   def self.find(args)
     [:a, :b, :c]
   end
@@ -38,7 +38,7 @@ class HorribleObject < User
 end
 
 class SubservientDummy
-  extend ActiveWorkaround::PoroConcern
+  extend SilverSpoon::PoroConcern
 
   def initialize
     @id = 1

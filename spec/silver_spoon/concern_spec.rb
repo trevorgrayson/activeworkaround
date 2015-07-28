@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe(ActiveWorkaround::Concern) do
+describe(SilverSpoon::Concern) do
 
   describe("has_many") do 
 
@@ -12,7 +12,7 @@ describe(ActiveWorkaround::Concern) do
 
     it("returns as expected") {
       dummy = User.create(name: "bob")
-      expect(dummy.funding_instruments).to be_a(ActiveWorkaround::CollectionProxy)
+      expect(dummy.funding_instruments).to be_a(SilverSpoon::CollectionProxy)
       expect(dummy.funding_instruments[0]).to be(:a)
 
       expect(dummy.funding_instruments.first).to be(:a)

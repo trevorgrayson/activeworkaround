@@ -1,6 +1,6 @@
 #presume it's an active record compliant object,
 # abstract
-module ActiveWorkaround
+module SilverSpoon
   module PoroConcern #extend ActiveSupport::Concern
 
     def has_many(name, args={})

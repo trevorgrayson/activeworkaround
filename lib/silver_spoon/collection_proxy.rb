@@ -1,10 +1,10 @@
-module ActiveWorkaround
+module SilverSpoon
 
   class CollectionProxy
     attr_accessor :owner, :model, :proxy_association
 
     def initialize model, association
-      @proxy_association = ActiveWorkaround::ProxyAssociation.new(model, association)
+      @proxy_association = SilverSpoon::ProxyAssociation.new(model, association)
     end
 
     delegate :[], :first, :second, :third, :fourth, :fifth, :forty_two,

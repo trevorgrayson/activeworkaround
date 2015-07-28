@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe(ActiveWorkaround::Concern) do
+describe(SilverSpoon::Concern) do
 
   describe("has_many") do 
 

@@ -1,8 +1,8 @@
-require File.expand_path("../lib/active_workaround/version", __FILE__)
+require File.expand_path("../lib/silver_spoon/version", __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name = "active_workaround"
-  gem.version = ActiveWorkaround::VERSION
+  gem.name = "silverspoon"
+  gem.version = SilverSpoon::VERSION
   gem.date = Date.today.to_s
 
   gem.summary = ""

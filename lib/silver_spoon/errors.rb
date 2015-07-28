@@ -1,3 +1,3 @@
-module ActiveWorkaround
+module SilverSpoon
   class NoDomain < StandardError; end
 end

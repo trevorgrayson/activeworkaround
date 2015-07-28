@@ -1,4 +1,4 @@
-# ActiveWorkaround
+# SilverSpoon
 ActiveModel Association.  "has_many" to any object that responds to ActiveModel methods
 
 ## Suppose you have a plain old ActiveModel
@@ -17,7 +17,7 @@ ActiveModel Association.  "has_many" to any object that responds to ActiveModel 
 ## And another Object that bares an association to it
 
     class User < ActiveRecord::Base
-      extend ActiveWorkaround::Concern
+      extend SilverSpoon::Concern
 
       #changing this
       has_many_remote :comments
