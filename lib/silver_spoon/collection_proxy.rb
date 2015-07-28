@@ -15,10 +15,6 @@ module SilverSpoon
 
     #replace, delete_all, destroy_all, delete, destroy, distinct, uniq, 
 
-    def method_missing method, *args
-      puts "DEBUGGER: #{method}" + args.inspect
-    end
-
     def concat new
       proxy_association.concat(new)
     end

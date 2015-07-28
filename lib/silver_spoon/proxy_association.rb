@@ -12,7 +12,7 @@ module SilverSpoon
     def initialize( model, association )
       @owner = association.owner
       @model = model
-      @items = @model.find(:all, foriegn_key(@owner) => @owner.to_param)
+      reload
     end
 
     def create(args)
@@ -35,8 +35,9 @@ module SilverSpoon
       @items.concat(new)
     end
 
-    #def reload
-    #end
+    def reload
+      @items = @model.find(:all, foriegn_key(@owner) => @owner.to_param)
+    end
 
     #def reset
     #end

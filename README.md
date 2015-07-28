@@ -1,5 +1,5 @@
 # SilverSpoon
-In this world there are the has, and the has nots.  ActiveRecord can `has_many` other ActiveRecords, but what about the rest of us? SilverSpoon lets ActiveRecord objects `has_many` Non-ActiveRecord objects, or for Non-ActiveRecord objects to `has_many` Non-ActiveRecord objects.  
+In this world there are the has, and the has nots.  ActiveRecord can `has_many` other ActiveRecords, but what about the rest of us? SilverSpoon lets ActiveRecord objects `has_many` Non-ActiveRecord objects, or for Non-ActiveRecord objects to `has_many` other Non-ActiveRecord objects.  
 
 For the people!
 
