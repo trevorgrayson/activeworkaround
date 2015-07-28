@@ -5,8 +5,8 @@ Gem::Specification.new do |gem|
   gem.version = SilverSpoon::VERSION
   gem.date = Date.today.to_s
 
-  gem.summary = ""
-  gem.description = ""
+  gem.summary = "Add has_many methods for non ActiveRecord associations."
+  gem.description = "This may go from ActiveRecord to Object or Object to ActiveRecord"
 
   gem.authors  = ["Trevor Grayson"]
   gem.email    = ["trevor@trevorgrayson.com"]
