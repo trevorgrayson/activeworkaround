@@ -3,7 +3,7 @@ ActiveModel Association.  "has_many" to any object that responds to ActiveModel 
 
 ## Suppose you have a plain old ActiveModel
 
-    class Comment
+    class BankAccount
       class << self
         def find(args)
           HTTP Request...
@@ -17,20 +17,18 @@ ActiveModel Association.  "has_many" to any object that responds to ActiveModel 
 ## And another Object that bares an association to it
 
     class User < ActiveRecord::Base
-      extend SilverSpoon::Concern
+      extend SilverSpoon::ActiveConcern
 
-      #changing this
-      has_many_remote :comments
-      belongs_to_remote :organization
+      has_many :bank_accounts
     end
 
 ## Now make calls a la ActiveRecord Association
 
     user = User.new
 
-    user.comments
+    user.bank_accounts
 
-The referencing class does not have to be an ActiveRecord object.  It simply needs to respond to a `find` method as you would expect. Having an `@id` or `to_params` would be useful as well in most cases.  
+The referencing class does not have to be an ActiveRecord object.  It simply needs to respond to a `find` method as you would expect. Having an `@id` or `to_params` would be useful as well in most cases.  It would also be nice if there was a `save` method, if you're going to be doing something like that.
 
 The `find` method may receive the id from the referring object to associate the two.
 

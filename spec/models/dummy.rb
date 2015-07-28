@@ -17,7 +17,7 @@ class FundingInstrument
 end
 
 class ParentObject
-  extend SilverSpoon::PoroConcern
+  extend SilverSpoon::ActiveConcern
   def self.find(args)
     [:a, :b, :c]
   end
@@ -38,7 +38,7 @@ class HorribleObject < User
 end
 
 class SubservientDummy
-  extend SilverSpoon::PoroConcern
+  extend SilverSpoon::Concern
 
   def initialize
     @id = 1
