@@ -1,7 +1,7 @@
 require File.expand_path("../lib/silver_spoon/version", __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name = "silverspoon"
+  gem.name = "silver_spoon"
   gem.version = SilverSpoon::VERSION
   gem.date = Date.today.to_s
 
